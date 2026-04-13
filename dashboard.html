@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SastaOTP</title>
+
+<style>
+body{
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #1e1b4b, #020617);
+  color:white;
+}
+
+/* HEADER */
+.header{
+  display:flex;
+  justify-content:space-between;
+  padding:15px;
+  align-items:center;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.wallet{
+  background:rgba(255,255,255,0.05);
+  padding:8px 15px;
+  border-radius:12px;
+  backdrop-filter: blur(10px);
+}
+
+/* CARD (GLASS) */
+.card{
+  margin:15px;
+  padding:20px;
+  border-radius:20px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 30px rgba(139,92,246,0.3);
+}
+
+/* PRICE BANNER */
+.banner{
+  background: linear-gradient(135deg,#8b5cf6,#6366f1);
+  border-radius:20px;
+  padding:20px;
+}
+
+/* SERVICES GRID */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.service{
+  background: rgba(255,255,255,0.05);
+  padding:12px;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  transition:0.2s;
+}
+
+.service:hover{
+  transform:scale(1.05);
+}
+
+.service img{
+  width:40px;
+  border-radius:10px;
+}
+
+.price{
+  margin-left:auto;
+  color:#a78bfa;
+  font-weight:bold;
+}
+
+/* BUTTON */
+.btn{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:15px;
+  background: linear-gradient(90deg,#8b5cf6,#6366f1);
+  color:white;
+  margin-top:10px;
+}
+
+/* NAV */
+.nav{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:rgba(0,0,0,0.5);
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+  backdrop-filter: blur(10px);
+}
+
+.nav div{
+  font-size:12px;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">⚡ SastaOTP</div>
+  <div class="wallet">₹<span id="wallet">20.00</span> +</div>
+</div>
+
+<!-- BANNER -->
+<div class="card banner">
+  <h3>PRICE DROP!</h3>
+  <h2>WhatsApp Vietnam</h2>
+  <p>₹23.13 <s>₹48.75</s></p>
+</div>
+
+<!-- SERVICES -->
+<div class="card">
+  <h3>Services</h3>
+
+  <div class="grid">
+
+    <div class="service" onclick="selectService('WhatsApp')">
+      <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-whatsapp-icon-png-image_3584845.jpg">
+      WhatsApp
+      <div class="price">₹1.57</div>
+    </div>
+
+    <div class="service" onclick="selectService('Instagram')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+      Instagram
+      <div class="price">₹0.68</div>
+    </div>
+
+    <div class="service" onclick="selectService('Google')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/3840px-Google_%22G%22_logo.svg.png">
+      Google
+      <div class="price">₹6.86</div>
+    </div>
+
+    <div class="service" onclick="selectService('Telegram')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
+      Telegram
+      <div class="price">₹23.00</div>
+    </div>
+
+  </div>
+
+  <!-- COUNTRY SELECT -->
+  <div id="countryBox" style="display:none;margin-top:15px">
+    <h4>Select Country</h4>
+
+    <button class="btn" onclick="buy('India',5)">🇮🇳 India ₹5</button>
+    <button class="btn" onclick="buy('USA',10)">🇺🇸 USA ₹10</button>
+    <button class="btn" onclick="buy('UK',12)">🇬🇧 UK ₹12</button>
+  </div>
+
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <div>🏠<br>Services</div>
+  <div>📜<br>History</div>
+  <div>📊<br>Stats</div>
+  <div>👥<br>Affiliate</div>
+  <div>💰<br>Wallet</div>
+</div>
+
+<script>
+let selectedService="";
+
+function selectService(name){
+  selectedService = name;
+  document.getElementById("countryBox").style.display="block";
+}
+
+function buy(country,price){
+  alert(selectedService+" "+country+" ordered (Pending)");
+}
+</script>
+
+</body>
+</html>
