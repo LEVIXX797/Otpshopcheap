@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SastaOTP Pro</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body>
+
+<div class="card" id="loginBox">
+<h2>Login</h2>
+<input id="email" placeholder="Email">
+<input id="pass" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+
+<p>
+<a href="#" onclick="forgot()">Forgot Password?</a><br>
+<a href="#" onclick="showRegister()">Register</a>
+</p>
+</div>
+
+<div id="dashboard" style="display:none">
+
+<div class="card">
+<h3>Wallet: ₹<span id="wallet">0</span></h3>
+<button onclick="addMoney()">Add Money</button>
+</div>
+
+<div class="card">
+<h3>Services</h3>
+
+<div onclick="buy('WhatsApp','India',5)">WhatsApp India ₹5</div>
+<div onclick="buy('Instagram','USA',10)">Instagram USA ₹10</div>
+
+</div>
+
+<div class="card">
+<h3>Orders</h3>
+<div id="orders"></div>
+</div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
